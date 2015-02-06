@@ -26,7 +26,6 @@ function reportPosition(position) {
     img.onload = function imageDraw() {
         context.drawImage(img, 0, 0, 400, 400); 
     } 
-    imageDraw();
     console.log(latitude);
     console.log(longitude);
 }
