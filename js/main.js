@@ -23,7 +23,10 @@ function reportPosition(position) {
     var context = canvas.getContext("2d");
     var img = document.createElement("img");
     img.src = "https://maps.googleapis.com/maps/api/staticmap?center="+latitude+","+longitude+"&zoom=14&size=400x400&scale=2&maptype=terrain&language=english&markers=color:red|"+latitude+","+longitude+"&key=AIzaSyDP68CXSK9TynSN4n_Moo7PPakL8SQM0xk";
-    context.drawImage(img, 0, 0, 400, 400);
+    img.onload = function imageDraw() {
+        context.drawImage(img, 0, 0, 400, 400); 
+    } 
+    imageDraw();
     console.log(latitude);
     console.log(longitude);
 }
@@ -36,3 +39,5 @@ function gpsError(error) {
   };
   alert("Error: " + errors[error.code]);
 }
+
+    
